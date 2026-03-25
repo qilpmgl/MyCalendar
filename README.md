@@ -1,32 +1,40 @@
 # MyCalendar
 
-一个用于生成中国黄历 iCalendar 文件的小工具，并附带一个可直接部署到 GitHub Pages 的静态下载页。
+这是一个可直接添加到手机或电脑日历里的中国黄历订阅日历。
 
-## 文件说明
+## 立即使用
 
-- `generate_ics.py`：生成黄历 `.ics` 文件
-- `chinese_almanac.ics`：当前生成好的日历文件
-- `index.html`：GitHub Pages 首页，提供下载入口
+- 网页入口：[https://qilpmgl.github.io/MyCalendar](https://qilpmgl.github.io/MyCalendar)
+- iPhone 订阅地址：`webcal://qilpmgl.github.io/MyCalendar/chinese_almanac.ics`
+- 下载文件：`https://qilpmgl.github.io/MyCalendar/chinese_almanac.ics`
 
-## 本地生成黄历文件
+## iPhone 添加方法
 
-```bash
-python3 generate_ics.py --start 2026 --end 2028 --output chinese_almanac.ics
-```
+1. 打开“设置”
+2. 进入“日历”
+3. 进入“账户”
+4. 选择“添加账户”
+5. 选择“其他”
+6. 选择“添加已订阅的日历”
+7. 粘贴这个地址：`webcal://qilpmgl.github.io/MyCalendar/chinese_almanac.ics`
 
-## 发布到 GitHub Pages
+保存后，就可以在系统日历里看到每天的黄历内容。
 
-1. 把仓库 push 到 GitHub
-2. 打开仓库的 `Settings > Pages`
-3. `Source` 选择 `Deploy from a branch`
-4. 分支选择 `main`
-5. 目录选择 `/(root)`
-6. 等待 GitHub 部署完成后访问：`https://qilpmgl.github.io/MyCalendar`
+## 其他日历应用
 
-## 页面用途
+如果你使用的是 Outlook、Google Calendar 或其他支持 iCalendar 的应用，可以下载这个 `.ics` 文件后导入：
 
-GitHub Pages 首页会提供：
+[https://qilpmgl.github.io/MyCalendar/chinese_almanac.ics](https://qilpmgl.github.io/MyCalendar/chinese_almanac.ics)
 
-- `.ics` 文件直接下载入口
-- GitHub 仓库入口
-- 针对手机和桌面端都可访问的静态展示页
+## 日历内容
+
+这个日历包含每日黄历信息，例如：
+
+- 农历日期
+- 干支
+- 节气
+- 宜忌
+- 冲煞
+- 建除等常用信息
+
+内容仅供日常参考。

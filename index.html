@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyCalendar | 中国黄历订阅站</title>
-  <meta name="description" content="一个可爱又直接的中国黄历下载页，提供 .ics 日历文件下载与 GitHub 仓库入口。">
+  <title>MyCalendar | 中国黄历订阅日历</title>
+  <meta name="description" content="可直接添加到 iPhone 和其他日历应用的中国黄历订阅日历，支持订阅和 .ics 下载。">
   <style>
     :root {
       --bg-top: #fff8ef;
@@ -332,6 +332,17 @@
       line-height: 1.7;
     }
 
+    .link-box {
+      margin-top: 10px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 244, 236, 0.96);
+      border: 1px dashed rgba(198, 77, 51, 0.26);
+      color: var(--accent-deep);
+      line-height: 1.8;
+      word-break: break-all;
+    }
+
     code {
       padding: 2px 7px;
       border-radius: 8px;
@@ -405,23 +416,24 @@
   <main class="shell">
     <section class="hero">
       <div class="panel hero-main">
-        <span class="eyebrow">MyCalendar · 中国黄历 Pages</span>
-        <h1>把黄历<br>装进你的日历里</h1>
+        <span class="eyebrow">MyCalendar · 中国黄历订阅日历</span>
+        <h1>一键添加<br>中国黄历到日历</h1>
         <p class="subtitle">
-          这是一个为中国黄历生成的轻巧下载页。点一下下载 <code>.ics</code> 文件，
-          就能导入到系统日历、Outlook 或其他支持 iCalendar 的应用里。
+          这是一个可以直接添加到手机和电脑日历里的中国黄历。iPhone 建议使用订阅地址，
+          其他日历应用也可以直接下载 <code>.ics</code> 文件导入使用。
         </p>
         <div class="actions">
-          <a class="button button-primary" href="./chinese_almanac.ics" download>
-            下载黄历文件
+          <a class="button button-primary" href="webcal://qilpmgl.github.io/MyCalendar/chinese_almanac.ics">
+            iPhone 直接订阅
           </a>
-          <a class="button button-secondary" href="https://github.com/qilpmgl/MyCalendar" target="_blank" rel="noreferrer">
-            查看 GitHub 仓库
+          <a class="button button-secondary" href="./chinese_almanac.ics" download>
+            下载 .ics 文件
           </a>
         </div>
         <p class="microcopy">
-          如果你想长期更新，可以重新生成新的 <code>chinese_almanac.ics</code> 后覆盖并 push，Pages 会自动刷新。
+          如果点击订阅没有直接打开日历，请复制下方订阅地址，到 iPhone 的“添加已订阅的日历”中粘贴使用。
         </p>
+        <div class="link-box">webcal://qilpmgl.github.io/MyCalendar/chinese_almanac.ics</div>
       </div>
 
       <aside class="panel hero-side">
@@ -434,16 +446,16 @@
 
         <div class="card-stack">
           <div class="info-card">
-            <strong>适合谁</strong>
-            <p>想在手机、电脑日历里直接查看每天黄历的人，不想手动查表，也不想装一堆复杂应用。</p>
+            <strong>怎么用最省事</strong>
+            <p>iPhone 用户优先点“iPhone 直接订阅”；如果是电脑或其他日历应用，下载 `.ics` 文件再导入即可。</p>
           </div>
           <div class="info-card">
-            <strong>文件里有什么</strong>
-            <p>每天一个全天事件，包含农历、干支、节气、宜忌、冲煞、建除与其他黄历信息。</p>
+            <strong>日历里有什么</strong>
+            <p>每天一个全天黄历事件，包含农历、干支、节气、宜忌、冲煞、建除等常用信息。</p>
           </div>
           <div class="info-card">
-            <strong>一个小提醒</strong>
-            <p>内容来自程序生成与黄历数据源，适合日常参考，不建议把它当成唯一依据。</p>
+            <strong>适合什么场景</strong>
+            <p>适合日常查看、添加到个人日历、发给家人朋友一起使用。内容仅供参考，不作为唯一依据。</p>
           </div>
         </div>
       </aside>
@@ -452,34 +464,35 @@
     <section class="grid">
       <article class="panel feature">
         <div class="feature-icon">历</div>
-        <h3>打开就能下</h3>
-        <p>没有跳转迷宫，没有复杂按钮。首页就是下载页，适合自己用，也适合发给朋友或家人。</p>
+        <h3>iPhone 直接订阅</h3>
+        <p>使用 <code>webcal</code> 订阅地址，可以更自然地接入 iPhone 系统日历，后续更新也更方便同步。</p>
       </article>
       <article class="panel feature">
         <div class="feature-icon">日</div>
-        <h3>适合日历导入</h3>
-        <p>保留标准 <code>.ics</code> 格式，日历应用兼容性更好。导入之后每天会以全天事件形式展示。</p>
+        <h3>其他应用可导入</h3>
+        <p>保留标准 <code>.ics</code> 格式，适合导入到系统日历、Outlook、Google Calendar 等支持 iCalendar 的应用。</p>
       </article>
       <article class="panel feature">
-        <div class="feature-icon">云</div>
-        <h3>Pages 自动发布</h3>
-        <p>仓库 push 之后，GitHub Pages 会重新部署。你只要维护数据文件，网页入口就一直可访问。</p>
+        <div class="feature-icon">黄</div>
+        <h3>每天都能看到黄历</h3>
+        <p>日历内容覆盖每日黄历信息，打开日历就能查看，不需要再单独搜索或切换其他应用。</p>
       </article>
     </section>
 
     <section class="panel tips">
-      <h2>使用方式</h2>
-      <p>如果你准备把这个站点作为固定入口，下面这三个动作最常用。</p>
+      <h2>怎么添加到手机日历</h2>
+      <p>如果你用的是 iPhone，按下面步骤添加订阅最直接。</p>
       <div class="tip-list">
-        <div class="tip-item">1. 打开 GitHub 仓库设置中的 Pages，把部署来源设为 <code>main</code> 分支和根目录 <code>/(root)</code>。</div>
-        <div class="tip-item">2. 以后运行脚本重新生成 <code>chinese_almanac.ics</code>，提交并 push，网页下载内容就会更新。</div>
-        <div class="tip-item">3. 部署完成后，访问 <code>https://qilpmgl.github.io/MyCalendar</code> 就能看到这个页面。</div>
+        <div class="tip-item">1. 点击上方“iPhone 直接订阅”，或者复制这个地址：<br><code>webcal://qilpmgl.github.io/MyCalendar/chinese_almanac.ics</code></div>
+        <div class="tip-item">2. 在 iPhone 中打开“设置 → 日历 → 账户 → 添加账户 → 其他 → 添加已订阅的日历”。</div>
+        <div class="tip-item">3. 粘贴订阅地址后保存，就能在系统日历里看到每天的黄历内容。</div>
+        <div class="tip-item">4. 如果某些应用不支持订阅，可直接下载上方的 <code>.ics</code> 文件再导入。</div>
       </div>
     </section>
 
     <footer class="panel footer">
-      <span>MyCalendar · 轻量黄历下载页</span>
-      <span><a href="./chinese_almanac.ics" download>直接下载 .ics</a> · <a href="https://github.com/qilpmgl/MyCalendar" target="_blank" rel="noreferrer">源码仓库</a></span>
+      <span>MyCalendar · 中国黄历订阅日历</span>
+      <span><a href="webcal://qilpmgl.github.io/MyCalendar/chinese_almanac.ics">订阅地址</a> · <a href="./chinese_almanac.ics" download>下载 .ics</a></span>
     </footer>
   </main>
 </body>
