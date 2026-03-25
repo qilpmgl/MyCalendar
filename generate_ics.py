@@ -8,12 +8,13 @@
 数据来源：cnlunar 库（基于《钦定协纪辨方书》）
 """
 
-import cnlunar
-from datetime import datetime, timedelta
-from icalendar import Calendar, Event
-from hashlib import md5
 import argparse
 import sys
+from datetime import datetime, timedelta, timezone
+from hashlib import md5
+
+import cnlunar
+from icalendar import Calendar, Event
 
 
 def get_lunar_info(dt: datetime) -> dict:
@@ -114,6 +115,7 @@ def generate_ics(start_year: int, end_year: int, output_path: str):
     cal.add("x-wr-calname", "中国黄历")
     cal.add("x-wr-caldesc", "每日黄历：农历、干支、节气、宜忌")
     cal.add("x-wr-timezone", "Asia/Shanghai")
+    cal.add("x-published-ttl", "PT24H")
     # 订阅刷新间隔：每天
     cal.add("refresh-interval;value=duration", "P1D")
 
@@ -122,6 +124,7 @@ def generate_ics(start_year: int, end_year: int, output_path: str):
     current = start_date
     total_days = (end_date - start_date).days + 1
     count = 0
+    generated_at = datetime.now(timezone.utc)
 
     print(f"正在生成 {start_year}-{end_year} 年黄历数据（共 {total_days} 天）...")
 
@@ -135,7 +138,9 @@ def generate_ics(start_year: int, end_year: int, output_path: str):
         event.add("summary", summary)
         event.add("description", description)
         event.add("dtstart", current.date())
-        event.add("dtend", current.date())
+        event.add("dtend", (current + timedelta(days=1)).date())
+        event.add("dtstamp", generated_at)
+        event.add("last-modified", generated_at)
         event.add("transp", "TRANSPARENT")  # 不占用时间块
 
         # 用日期生成稳定的 UID，避免重复导入时产生重复事件
